@@ -1,5 +1,5 @@
 
-module newrelic 1.0;
+module newrelic 1.1;
 
 require {
 	type var_log_t;
@@ -12,6 +12,6 @@ require {
 
 #============= httpd_t ==============
 allow httpd_t var_log_t:file open;
-allow httpd_t var_run_t:file { read write };
+allow httpd_t var_run_t:file { read write open };
 allow httpd_t self:capability2 block_suspend;
 allow httpd_t sysctl_net_t:file { read open };
