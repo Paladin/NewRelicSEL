@@ -6,12 +6,12 @@ require {
 	type var_run_t;
 	type httpd_t;
 	type sysctl_net_t;
-	class file { read open write };
+	class file { read open write lock };
 	class capability2 block_suspend;
 }
 
 #============= httpd_t ==============
 allow httpd_t var_log_t:file open;
-allow httpd_t var_run_t:file { read write open };
+allow httpd_t var_run_t:file { read write open lock };
 allow httpd_t self:capability2 block_suspend;
 allow httpd_t sysctl_net_t:file { read open };
